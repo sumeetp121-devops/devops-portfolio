@@ -1,12 +1,12 @@
-name: Build and Deploy to Docker Hub
+name: Build, Push and Deploy
 
 on:
   push:
     branches:
-      - main  # Change to your default branch if not 'main'
+      - main  # Trigger on push to main branch
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +29,13 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: sumeetp111/portfolio:latest
+
+      - name: Set up Kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
+          chmod 600 ~/.kube/config
+
+      - name: Restart Kubernetes Deployment
+        run: kubectl rollout restart deployment portfolio-deployment
+
