@@ -1,13 +1,13 @@
-name: Build, Push and Deploy
+name: Build and Deploy to Kubernetes (Local)
 
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main  # or your default branch
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # <-- important change
 
     steps:
       - name: Checkout source code
@@ -30,12 +30,7 @@ jobs:
           push: true
           tags: sumeetp111/portfolio:latest
 
-      - name: Set up Kubeconfig
+      - name: Restart Kubernetes deployment
         run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
-          chmod 600 ~/.kube/config
-
-      - name: Restart Kubernetes Deployment
-        run: kubectl rollout restart deployment portfolio-deployment
+          kubectl rollout restart deployment portfolio-deployment
 
