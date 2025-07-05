@@ -16,6 +16,7 @@ spec:
       containers:
         - name: portfolio
           image: sumeetp111/portfolio:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           volumeMounts:
