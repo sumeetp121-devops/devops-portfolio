@@ -1,0 +1,43 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install dependencies
+      apt:
+        name: [docker.io, curl]
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Set up Docker on RedHat
+      when: ansible_os_family == "RedHat"
+      block:
+        - name: Remove conflicting Podman Docker
+          yum:
+            name: podman-docker
+            state: absent
+
+        - name: Install yum utils
+          yum:
+            name: yum-utils
+            state: present
+
+        - name: Add Docker repo
+          command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+        - name: Install Docker packages
+          yum:
+            name:
+              - docker-ce
+              - docker-ce-cli
+              - containerd.io
+            state: present
+
+        - name: Install curl
+          yum:
+            name: curl
+            state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
