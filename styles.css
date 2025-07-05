@@ -10,8 +10,9 @@ body {
   max-width: 960px;
   margin: 30px auto;
   padding: 20px;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 header {
@@ -30,11 +31,6 @@ header h1 {
   color: #777;
 }
 
-.contact {
-  margin-top: 10px;
-  font-size: 0.95rem;
-}
-
 .contact a {
   color: #0077cc;
   text-decoration: none;
@@ -48,21 +44,29 @@ h2 {
   color: #444;
 }
 
-.job {
-  margin-bottom: 15px;
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
-ul.skills, ul {
-  list-style: none;
-  padding-left: 0;
+.skills div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
 }
 
-ul.skills li {
-  display: inline-block;
-  background: #efefef;
-  margin: 5px;
-  padding: 5px 10px;
-  border-radius: 4px;
+.skills img {
+  width: 48px;
+  height: 48px;
+}
+
+.skills span {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 ul li {
