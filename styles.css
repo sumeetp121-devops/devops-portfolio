@@ -1,85 +1,71 @@
-:root {
-  --primary: #1e293b;
-  --accent: #4ade80;
-  --bg: #f1f5f9;
-  --text: #0f172a;
-  --muted: #64748b;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+.container {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 header {
-  background: var(--primary);
-  color: white;
-  padding: 2rem;
   text-align: center;
-  border-bottom: 5px solid var(--accent);
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 2.5rem;
+header h1 {
   margin: 0;
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.contact {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.contact a {
+  color: #0077cc;
+  text-decoration: none;
+  margin: 0 5px;
 }
 
 h2 {
-  font-size: 1.6rem;
-  margin-top: 2rem;
-  color: var(--primary);
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  color: #444;
 }
 
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem;
+.job {
+  margin-bottom: 15px;
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  transition: 0.3s ease;
+ul.skills, ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-.card:hover {
-  transform: scale(1.01);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+ul.skills li {
+  display: inline-block;
+  background: #efefef;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  background: var(--accent);
-  color: #0f172a;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  padding: 1rem;
-  background: var(--primary);
-  color: white;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+ul li {
+  margin-bottom: 6px;
 }
 
