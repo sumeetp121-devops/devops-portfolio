@@ -26,6 +26,7 @@ spec:
                   #- name: html-volume
                   #persistentVolumeClaim:
                   #claimName: portfolio-pvc
+                  #
 ---
 apiVersion: v1
 kind: Service
