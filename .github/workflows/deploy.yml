@@ -34,5 +34,7 @@ jobs:
 
       - name: Restart Kubernetes deployment
         run: |
+          echo "Deploying to Kubernetes"
           kubectl rollout restart deployment portfolio-deployment
+          kubectl rollout status deployment portfolio-deployment --timeout=60s
 
