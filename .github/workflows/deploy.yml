@@ -29,6 +29,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: sumeetp111/portfolio:latest
+          cache-from: type=registry,ref=sumeetp111/portfolio:cache
+          cache-to: type=registry,ref=sumeetp111/portfolio:cache,mode=max
 
       - name: Restart Kubernetes deployment
         run: |
